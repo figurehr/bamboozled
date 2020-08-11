@@ -32,7 +32,7 @@ module Bamboozled
       end
 
       # Tabular data
-      [:job_info, :employment_status, :compensation, :dependents, :contacts].each do |action|
+      [:job_info, :employment_status, :compensation, :dependents, :contacts, :bonus].each do |action|
         define_method(action.to_s) do |argument_id|
           request(:get, "employees/#{argument_id}/tables/#{action.to_s.gsub(/_(.)/) {|e| $1.upcase}}")
         end
